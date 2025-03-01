@@ -17,6 +17,7 @@ class UserServiceProvider extends ServiceProvider
 
             $users = [
             [
+                'id' => 1,
                 'name' => 'John Doe',
                 'gender' => 'Male',
                 'studno' => '22-00692'
@@ -24,6 +25,7 @@ class UserServiceProvider extends ServiceProvider
             ],
             
             [
+                'id' => 2,
                 'name' => 'Anna Doe',
                 'gender' => 'Female',
                 'studno' => '22-00891'
