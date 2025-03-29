@@ -6,12 +6,18 @@ use App\Services\UserService;
 use App\Services\ProductService;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PageController;
 
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/welcome', ['name' => 'villarico-app']);
 });
+
+Route::get('/users', [UserController::class, 'index']);
+
+Route::resource('products', ProductController::class);
+
 
 Route::get('/test-container', function (Request $request) {
     $input = $request->input('key');
@@ -82,9 +88,9 @@ Route::post('/token', function (Request $request) {
     return $request->all();
 });
 
-Route::get('/users', [UserController::class, 'index'])->middleware('user-middleware');
+// Route::get('/users', [UserController::class, 'index'])->middleware('user-middleware');
 
-Route::resource('products', ProductController::class);
+// Route::resource('products', ProductController::class);
 
 Route::get('/product-list', function (ProductService $productService) {
     $data['products'] = $productService->listProducts();
